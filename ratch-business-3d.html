@@ -67,7 +67,7 @@ ul.list .y{color:var(--muted);font-size:13px}
 <div class="wrap">
   <header class="head">
     <h1>โรงไฟฟ้าของ RATCH และรายได้ที่แต่ละแห่งทำได้</h1>
-    <p class="lead">RATCH ผลิตไฟฟ้าขายให้ กฟผ. และโรงงานในนิคมอุตสาหกรรม โรงไฟฟ้าที่ถือหุ้นข้างมากนับเป็นรายได้ขายเต็มจำนวน ส่วนโรงที่ร่วมทุนนับเฉพาะส่วนแบ่งกำไร</p>
+    <p class="lead">RATCH ผลิตและขายไฟฟ้า โรงไฟฟ้าที่ถือหุ้นข้างมากนับเป็นรายได้ขายเต็มจำนวน ส่วนโรงที่ร่วมทุนนับเฉพาะส่วนแบ่งกำไร</p>
   </header>
 
   <div class="stage">
@@ -81,7 +81,6 @@ ul.list .y{color:var(--muted);font-size:13px}
     <span><i class="g"></i>กรอบเส้น = ค่า Q2/2568</span>
     <span><i class="t"></i>แผ่นไฟสว่าง = โรงที่เลือกอยู่</span>
     <span>สีของเสาและหลังคา = กลุ่มกิจการ (ไม่ใช่ขนาดของค่า)</span>
-    <label class="tg"><input type="checkbox" id="tgLines" checked> เส้นส่งไฟไป กฟผ.</label>
     <label class="tg"><input type="checkbox" id="tgFx" checked> ควัน ไอน้ำ และน้ำไหล</label>
   </div>
 
@@ -93,7 +92,7 @@ ul.list .y{color:var(--muted);font-size:13px}
     </div>
   </div>
 
-  <p class="src">ที่มา: RATCH MD&amp;A ไตรมาส 2/2569 (14 ส.ค. 2569) หน่วยล้านบาท รูปทรงโรงไฟฟ้า ควัน และเส้นส่งไฟเป็นภาพประกอบคำอธิบาย ไม่ใช่ขนาด ผัง หรือปริมาณไฟจริง เส้นส่งไฟแสดงเฉพาะโรงที่เอกสารระบุว่าขายให้ กฟผ. รายได้จากสัญญาเช่า (1,022 ล้านบาท) ไม่ได้แสดงในแผนภาพ ข้อมูลเพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน</p>
+  <p class="src">ที่มา: RATCH MD&amp;A ไตรมาส 2/2569 (14 ส.ค. 2569) หน่วยล้านบาท รูปทรงโรงไฟฟ้าและควันเป็นภาพประกอบคำอธิบาย ไม่ใช่ขนาดหรือผังจริง รายได้จากสัญญาเช่า (1,022 ล้านบาท) ไม่ได้แสดงในแผนภาพ ข้อมูลเพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน</p>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
@@ -109,17 +108,17 @@ ul.list .y{color:var(--muted);font-size:13px}
     wind:'ลม + ก๊าซ', road:'ทางพิเศษ', mix:'หลายโรง', ccgtOld:'วัฏจักรร่วม (หน่วยถ่านหินหมดสัญญา)'
   };
   var ITEMS=[
-    {id:'hkp',reg:'th',type:'sub',kind:'ccgt',n:2,egat:1,buyer:'ขายให้ กฟผ.',name:'HKP หินกอง',a:0,b:6499,c:'--c-hkp',desc:'โรงไฟฟ้าวัฏจักรร่วมหินกอง RATCH ถือ 51% เดิมเป็นกิจการร่วมค้า ตอนนี้เป็นบริษัทย่อย จึงรวมรายได้เต็มจำนวน เป็นเหตุหลักที่รายได้รวมของ RATCH โตสูง ไม่ได้แปลว่าธุรกิจเติบโตเท่านั้น'},
-    {id:'rg',reg:'th',type:'sub',kind:'ccgtOld',n:1,egat:1,buyer:'ขายให้ กฟผ.',name:'RG ราชบุรี',a:1933,b:521,c:'--c-rg',desc:'สัญญาซื้อขายไฟกับ กฟผ. ของหน่วยโรงไฟฟ้าพลังความร้อนหมดอายุ 30 ต.ค. 2568 และหยุดผลิต (ส่วนจางในภาพ) เหลือส่วนวัฏจักรร่วม รายได้จึงลดลง 73%'},
-    {id:'rco',reg:'th',type:'sub',kind:'spp',n:1,egat:1,buyer:'กฟผ. + ลูกค้าอุตสาหกรรม',name:'RCO',a:791,b:787,c:'--c-th',desc:'โรงไฟฟ้าโคเจนเนอเรชัน อัตรากำไรขั้นต้น 6 เดือนอยู่ที่ 22% รายได้ทรงตัวเทียบปีก่อน'},
-    {id:'rpe',reg:'th',type:'sub',kind:'spp',n:2,egat:1,buyer:'กฟผ. + ลูกค้าในนิคม',name:'RPE',a:861,b:791,c:'--c-th',desc:'โรงไฟฟ้า SPP ขายไฟให้ กฟผ. และลูกค้าในนิคม ค่า Ft ต่ำกว่าปีก่อน และปีก่อนมีเงินชดเชยค่าก๊าซจาก กฟผ. เข้ามาครั้งเดียว'},
-    {id:'rer',reg:'th',type:'sub',kind:'spp',n:1,egat:1,buyer:'ขายให้ กฟผ.',name:'RER ระยอง',a:556,b:634,c:'--c-th',desc:'โรงไฟฟ้าระยอง รายได้โตขึ้นเพราะ กฟผ. สั่งผลิตมากขึ้น และราคาก๊าซที่สูงขึ้นทำให้ค่าพลังงานไฟฟ้าสูงตาม'},
+    {id:'hkp',reg:'th',type:'sub',kind:'ccgt',n:2,name:'HKP หินกอง',a:0,b:6499,c:'--c-hkp',desc:'โรงไฟฟ้าวัฏจักรร่วมหินกอง RATCH ถือ 51% เดิมเป็นกิจการร่วมค้า ตอนนี้เป็นบริษัทย่อย จึงรวมรายได้เต็มจำนวน เป็นเหตุหลักที่รายได้รวมของ RATCH โตสูง ไม่ได้แปลว่าธุรกิจเติบโตเท่านั้น'},
+    {id:'rg',reg:'th',type:'sub',kind:'ccgtOld',n:1,name:'RG ราชบุรี',a:1933,b:521,c:'--c-rg',desc:'สัญญาซื้อขายไฟกับ กฟผ. ของหน่วยโรงไฟฟ้าพลังความร้อนหมดอายุ 30 ต.ค. 2568 และหยุดผลิต (ส่วนจางในภาพ) เหลือส่วนวัฏจักรร่วม รายได้จึงลดลง 73%'},
+    {id:'rco',reg:'th',type:'sub',kind:'spp',n:1,name:'RCO',a:791,b:787,c:'--c-th',desc:'โรงไฟฟ้าโคเจนเนอเรชัน อัตรากำไรขั้นต้น 6 เดือนอยู่ที่ 22% รายได้ทรงตัวเทียบปีก่อน'},
+    {id:'rpe',reg:'th',type:'sub',kind:'spp',n:2,name:'RPE',a:861,b:791,c:'--c-th',desc:'โรงไฟฟ้า SPP ขายไฟให้ กฟผ. และลูกค้าในนิคม ค่า Ft ต่ำกว่าปีก่อน และปีก่อนมีเงินชดเชยค่าก๊าซจาก กฟผ. เข้ามาครั้งเดียว'},
+    {id:'rer',reg:'th',type:'sub',kind:'spp',n:1,name:'RER ระยอง',a:556,b:634,c:'--c-th',desc:'โรงไฟฟ้าระยอง รายได้โตขึ้นเพราะ กฟผ. สั่งผลิตมากขึ้น และราคาก๊าซที่สูงขึ้นทำให้ค่าพลังงานไฟฟ้าสูงตาม'},
     {id:'oth',reg:'th',type:'sub',kind:'mix',name:'บริษัทย่อยอื่น',a:164,b:140,c:'--c-th',desc:'รายได้จากบริษัทย่อยอื่นที่ไม่ได้แยกรายโรง'},
-    {id:'spp',reg:'th',type:'assoc',kind:'spp',n:2,egat:1,buyer:'กฟผ. + ลูกค้าในนิคม',name:'SPP ร่วมทุน',a:61,b:8,c:'--c-th',desc:'ส่วนแบ่งกำไรจากโรงไฟฟ้า SPP ที่ร่วมทุน เช่น นวนคร (ขายให้ กฟผ. 90 MW ที่เหลือขายลูกค้าในนิคม) ส่วนขยาย 28.75 MW เริ่มเชิงพาณิชย์เมื่อ 1 เม.ย. 2569 กำไรยังเล็กในไตรมาสนี้'},
+    {id:'spp',reg:'th',type:'assoc',kind:'spp',n:2,name:'SPP ร่วมทุน',a:61,b:8,c:'--c-th',desc:'ส่วนแบ่งกำไรจากโรงไฟฟ้า SPP ที่ร่วมทุน เช่น นวนคร (ขายให้ กฟผ. 90 MW ที่เหลือขายลูกค้าในนิคม) ส่วนขยาย 28.75 MW เริ่มเชิงพาณิชย์เมื่อ 1 เม.ย. 2569 กำไรยังเล็กในไตรมาสนี้'},
     {id:'inf',reg:'th',type:'assoc',kind:'road',name:'ทางพิเศษและอื่นๆ',a:-62,b:130,c:'--c-au',desc:'ส่วนแบ่งกำไรจากโครงสร้างพื้นฐานและอื่นๆ เช่น มอเตอร์เวย์ M6 ที่ RATCH ถือ 10% (คืบหน้า 91%, เปิดปี 2570) กลับมาเป็นบวกจากขาดทุนปีก่อน'},
-    {id:'rac',reg:'ov',type:'sub',kind:'wind',buyer:'ตลาดไฟฟ้าออสเตรเลีย',name:'RAC ออสเตรเลีย',a:1442,b:1273,c:'--c-au',desc:'กลุ่มโรงไฟฟ้าในออสเตรเลีย ทั้งก๊าซ (SP, LG) และพลังงานลม (Mt. Emerald, Collector) รายได้ลดลงเพราะราคาไฟในออสเตรเลียใต้ต่ำลง ส่วนโรงพลังลมได้ลมแรงขึ้น'},
-    {id:'ipp',reg:'ov',type:'assoc',kind:'coal',egat:1,buyer:'PLN อินโดนีเซีย (Paiton) · กฟผ./EDL (หงสา)',name:'IPP (PE, HPC ฯลฯ)',a:2374,b:1478,c:'--c-ipp',desc:'ผู้ผลิตไฟฟ้าเอกชนรายใหญ่ เช่น Paiton ในอินโดนีเซีย (ถือ 31.26% หลังขายออก 5%) และหงสาในลาว (ถือ 40%) ดีขึ้นจากไตรมาสก่อนเมื่อโรงผลิตมากขึ้น แต่ลดลงจากปีก่อน เพราะถือหุ้น PE น้อยลง และบาทแข็งกด HPC เส้นส่งไฟในภาพนับเฉพาะส่วนหงสาที่ขายให้ กฟผ.'},
-    {id:'hyd',reg:'ov',type:'assoc',kind:'hydro',egat:1,buyer:'ขายให้ กฟผ.',name:'พลังน้ำ/หมุนเวียน',a:57,b:-90,c:'--c-hydro',desc:'ส่วนแบ่งขาดทุน 90 ล้านบาท เซเปียน-เซน้ำน้อยดีขึ้น แต่น้ำงึม 2 ลดลงจากน้ำเข้าเขื่อนตามฤดูกาลและดอลลาร์อ่อน'}
+    {id:'rac',reg:'ov',type:'sub',kind:'wind',name:'RAC ออสเตรเลีย',a:1442,b:1273,c:'--c-au',desc:'กลุ่มโรงไฟฟ้าในออสเตรเลีย ทั้งก๊าซ (SP, LG) และพลังงานลม (Mt. Emerald, Collector) รายได้ลดลงเพราะราคาไฟในออสเตรเลียใต้ต่ำลง ส่วนโรงพลังลมได้ลมแรงขึ้น'},
+    {id:'ipp',reg:'ov',type:'assoc',kind:'coal',name:'IPP (PE, HPC ฯลฯ)',a:2374,b:1478,c:'--c-ipp',desc:'ผู้ผลิตไฟฟ้าเอกชนรายใหญ่ เช่น Paiton ในอินโดนีเซีย (ถือ 31.26% หลังขายออก 5%) และหงสาในลาว (ถือ 40%) ดีขึ้นจากไตรมาสก่อนเมื่อโรงผลิตมากขึ้น แต่ลดลงจากปีก่อน เพราะถือหุ้น PE น้อยลง และบาทแข็งกด HPC'},
+    {id:'hyd',reg:'ov',type:'assoc',kind:'hydro',name:'พลังน้ำ/หมุนเวียน',a:57,b:-90,c:'--c-hydro',desc:'ส่วนแบ่งขาดทุน 90 ล้านบาท เซเปียน-เซน้ำน้อยดีขึ้น แต่น้ำงึม 2 ลดลงจากน้ำเข้าเขื่อนตามฤดูกาลและดอลลาร์อ่อน'}
   ];
   var SCALE=1/1500, TILE=2.7;
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -153,7 +152,7 @@ ul.list .y{color:var(--muted);font-size:13px}
     white:new THREE.MeshStandardMaterial({color:0xf4f4f0}),
     ghostWall:new THREE.MeshStandardMaterial({transparent:true,opacity:.28,roughness:.8})
   };
-  var accentMats=[], edgeMats=[], spinners=[], emitters=[], hit=[], lineObjs=[], pulses=[];
+  var accentMats=[], edgeMats=[], spinners=[], emitters=[], hit=[];
 
   function bx(w,h,d,x,y,z,m){var o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);o.position.set(x,y+h/2,z);return o;}
   function cy(rt,rb,h,x,y,z,m,seg){var o=new THREE.Mesh(new THREE.CylinderGeometry(rt,rb,h,seg||16),m);o.position.set(x,y+h/2,z);return o;}
@@ -261,29 +260,6 @@ ul.list .y{color:var(--muted);font-size:13px}
   var isl=[['ประเทศไทย',-5.4,-3.7],['ต่างประเทศ',6.9,-2.4]].map(function(r){
     var d=document.createElement('div');d.className='lbl';d.style.fontSize='13px';d.style.color='var(--muted)';d.textContent=r[0];labelsEl.appendChild(d);return {d:d,x:r[1],z:r[2]};});
 
-  // ---- EGAT substation and power lines ----
-  var SUB=new THREE.Vector3(1.4,0,0), TOP=new THREE.Vector3(1.4,2.1,0);
-  (function(){
-    var s=new THREE.Group(); s.position.copy(SUB);
-    s.add(bx(1.5,.08,1.5,0,-.02,0,M.road));
-    s.add(bx(.4,.35,.4,-.4,.06,.35,M.wall)); s.add(bx(.4,.35,.4,.4,.06,.35,M.wall));
-    var p=new THREE.MeshStandardMaterial({color:0xe0902b}); accentMats.push({m:p,v:'--c-hkp'});
-    s.add(cy(.05,.09,2,0,0,-.2,M.steel,8)); s.add(bx(1.1,.06,.06,0,1.75,-.2,M.steel)); s.add(bx(.8,.06,.06,0,1.35,-.2,M.steel));
-    [-.5,0,.5].forEach(function(x){s.add(cy(.03,.03,.18,x,1.77,-.2,p,8));});
-    world.add(s); shadowize(s);
-    var d=document.createElement('div'); d.className='lbl'; d.style.fontWeight='700'; d.textContent='กฟผ. (ระบบส่ง)'; labelsEl.appendChild(d); SUB.lbl=d;
-  })();
-  var linesGroup=new THREE.Group(); world.add(linesGroup);
-  var pulseGeo=new THREE.SphereGeometry(.07,10,8);
-  ITEMS.filter(function(i){return i.egat}).forEach(function(it,k){
-    var from=new THREE.Vector3(it.x-.5,1.7,it.z), mid=from.clone().add(TOP).multiplyScalar(.5); mid.y=Math.max(from.y,TOP.y)+1.3+Math.abs(from.x-TOP.x)*.05;
-    var curve=new THREE.QuadraticBezierCurve3(from,mid,TOP.clone().add(new THREE.Vector3((k%3-1)*.4,-.3,0)));
-    var lm=new THREE.LineBasicMaterial({color:0xe0902b,transparent:true,opacity:.55}); accentMats.push({m:lm,v:it.c});
-    linesGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(curve.getPoints(48)),lm));
-    for(var j=0;j<3;j++){var pm=new THREE.MeshBasicMaterial({color:0xe0902b}); accentMats.push({m:pm,v:it.c});
-      var ps=new THREE.Mesh(pulseGeo,pm); linesGroup.add(ps); pulses.push({o:ps,c:curve,off:j/3+k*.13,sp:.14+it.b/60000});}
-  });
-
   // ---- optional .glb replacement ----
   function loadModels(){
     if(!THREE.GLTFLoader)return;
@@ -324,8 +300,7 @@ ul.list .y{color:var(--muted);font-size:13px}
   new MutationObserver(theme).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
 
   // ---- toggles ----
-  var tgL=document.getElementById('tgLines'), tgF=document.getElementById('tgFx');
-  tgL.addEventListener('change',function(){linesGroup.visible=tgL.checked;});
+  var tgF=document.getElementById('tgFx');
   tgF.addEventListener('change',function(){fxOn=tgF.checked;});
 
   // ---- orbit ----
@@ -355,7 +330,7 @@ ul.list .y{color:var(--muted);font-size:13px}
     Array.prototype.forEach.call(listEl.querySelectorAll('button'),function(b){b.setAttribute('aria-pressed',b.dataset.id===id?'true':'false')});
     var y=sel.a?((sel.b-sel.a)/Math.abs(sel.a)*100):null;
     var yt=y===null?'ไม่มีฐานปีก่อน':(y>=0?'+':'')+y.toFixed(1)+'%',cl=y===null?'':(y>=0?'up':'down');
-    infoEl.innerHTML='<div class="chips"><span class="chip">'+(sel.reg==='th'?'ในไทย':'ต่างประเทศ')+'</span><span class="chip">'+KIND[sel.kind]+'</span><span class="chip">'+(sel.type==='sub'?'บริษัทย่อย · นับรายได้ขาย':'ร่วมทุน · นับส่วนแบ่งกำไร')+'</span>'+(sel.buyer?'<span class="chip">ผู้ซื้อไฟ: '+sel.buyer+'</span>':'')+'</div>'+
+    infoEl.innerHTML='<div class="chips"><span class="chip">'+(sel.reg==='th'?'ในไทย':'ต่างประเทศ')+'</span><span class="chip">'+KIND[sel.kind]+'</span><span class="chip">'+(sel.type==='sub'?'บริษัทย่อย · นับรายได้ขาย':'ร่วมทุน · นับส่วนแบ่งกำไร')+'</span>'+'</div>'+
       '<h2>'+sel.name+'</h2><div class="nums"><div><small>Q2/2568</small><strong>'+fmt(sel.a)+'</strong></div><div><small>Q2/2569</small><strong>'+fmt(sel.b)+'</strong></div><div><small>เทียบปีก่อน</small><strong class="'+cl+'">'+yt+'</strong></div></div><p>'+sel.desc+'</p>';
   }
   select('hkp'); theme();
@@ -381,7 +356,6 @@ ul.list .y{color:var(--muted);font-size:13px}
         var sz=.18+t*grow; s.scale.set(sz,sz,1); s.material.opacity=.5*Math.sin(Math.PI*Math.min(1,t*1.05))*(em.type==='steam'?.9:.7);
       });
     });
-    pulses.forEach(function(p){var t=reduce?(p.off%1):((sec*p.sp+p.off)%1);p.o.position.copy(p.c.getPoint(t));});
     ITEMS.forEach(function(it){var h=it.h*e;it.col.scale.y=Math.max(.001,h);it.col.position.y=it.sg*h/2;});
     camera.position.set(.2+Math.sin(yaw)*Math.cos(pitch)*dist,Math.sin(pitch)*dist,Math.cos(yaw)*Math.cos(pitch)*dist);
     camera.lookAt(.2,.6,0);camera.updateMatrixWorld();
@@ -389,7 +363,6 @@ ul.list .y{color:var(--muted);font-size:13px}
     var w=cv.clientWidth,h=cv.clientHeight;
     ITEMS.forEach(function(it){proj(it.lbl,it.x,.1,it.z+1.05,w,h,'0');it.lbl.style.fontWeight=it===sel?'700':'500';if(w<560&&it!==sel)it.lbl.style.display='none';});
     isl.forEach(function(r){proj(r.d,r.x,0,r.z,w,h,'-100%');});
-    proj(SUB.lbl,SUB.x,2.2,SUB.z,w,h,'-100%');
     requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);

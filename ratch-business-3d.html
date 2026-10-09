@@ -6,18 +6,18 @@
    then a sticky detail card beside a list grouped by region. */
 :root{
   --bg:#f1f4f2; --fg:#16231f; --muted:#5b6b66; --line:#d3dcd8; --panel:#ffffff; --island:#e3e9e6; --tile:#f8faf9; --sel:#ffe9b8;
-  --wall:#c9d3cf; --steel:#8b9a95; --road:#4a504e; --water:#4aa3c7; --sky:#e9efec;
+  --wall:#c9d3cf; --steel:#8b9a95; --road:#4a504e; --water:#4aa3c7; --sky:#e9efec; --smoke:#8f9b97; --steam:#c3ccc9;
   --c-hkp:#e0902b; --c-rg:#8d7f72; --c-th:#1f8a78; --c-au:#2f6fb5; --c-ipp:#7a55b8; --c-hydro:#17a2b8;
   --font-display:'Bai Jamjuree','Noto Sans Thai',system-ui,sans-serif;
   --font-body:'Noto Sans Thai',system-ui,sans-serif;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#0e1514; --fg:#e4ede9; --muted:#93a59f; --line:#26332f; --panel:#141e1c; --island:#1b2623; --tile:#222f2b; --sel:#4a3a14;
-  --wall:#4a5b56; --steel:#6d7e79; --road:#2b2f2e; --water:#2f7fa3; --sky:#101a18;
+  --wall:#4a5b56; --steel:#6d7e79; --road:#2b2f2e; --water:#2f7fa3; --sky:#101a18; --smoke:#b7c4bf; --steam:#e4ede9;
   --c-hkp:#f0a548; --c-rg:#a89a8c; --c-th:#37b59f; --c-au:#5b95d6; --c-ipp:#a07fdb; --c-hydro:#3cc0d4; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0e1514; --fg:#e4ede9; --muted:#93a59f; --line:#26332f; --panel:#141e1c; --island:#1b2623; --tile:#222f2b; --sel:#4a3a14;
-  --wall:#4a5b56; --steel:#6d7e79; --road:#2b2f2e; --water:#2f7fa3; --sky:#101a18;
+  --wall:#4a5b56; --steel:#6d7e79; --road:#2b2f2e; --water:#2f7fa3; --sky:#101a18; --smoke:#b7c4bf; --steam:#e4ede9;
   --c-hkp:#f0a548; --c-rg:#a89a8c; --c-th:#37b59f; --c-au:#5b95d6; --c-ipp:#a07fdb; --c-hydro:#3cc0d4; color-scheme:dark}
 body{background:var(--bg);color:var(--fg);font-family:var(--font-body);line-height:1.6;padding-inline:16px;padding-block:24px 40px}
 .wrap{max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
@@ -36,6 +36,7 @@ p{margin:0}
 .hint{position:absolute;right:10px;bottom:8px;font-size:12px;color:var(--muted);pointer-events:none}
 .key{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:13px;color:var(--muted)}
 .key span{display:inline-flex;align-items:center;gap:7px}
+.tg{display:inline-flex;align-items:center;gap:6px;color:var(--fg);cursor:pointer}
 .key i{display:inline-block;width:10px;height:18px;border-radius:2px;background:var(--c-hkp)}
 .key i.g{background:none;border:1.5px solid var(--fg)}
 .key i.t{width:18px;height:12px;background:var(--tile);border:1px solid var(--line)}
@@ -80,6 +81,8 @@ ul.list .y{color:var(--muted);font-size:13px}
     <span><i class="g"></i>กรอบเส้น = ค่า Q2/2568</span>
     <span><i class="t"></i>แผ่นไฟสว่าง = โรงที่เลือกอยู่</span>
     <span>สีของเสาและหลังคา = กลุ่มกิจการ (ไม่ใช่ขนาดของค่า)</span>
+    <label class="tg"><input type="checkbox" id="tgLines" checked> เส้นส่งไฟไป กฟผ.</label>
+    <label class="tg"><input type="checkbox" id="tgFx" checked> ควัน ไอน้ำ และน้ำไหล</label>
   </div>
 
   <div class="detail">
@@ -90,28 +93,33 @@ ul.list .y{color:var(--muted);font-size:13px}
     </div>
   </div>
 
-  <p class="src">ที่มา: RATCH MD&amp;A ไตรมาส 2/2569 (14 ส.ค. 2569) หน่วยล้านบาท รูปทรงโรงไฟฟ้าเป็นแบบจำลองประกอบคำอธิบาย ไม่ใช่ขนาดหรือผังจริง รายได้จากสัญญาเช่า (1,022 ล้านบาท) ไม่ได้แสดงในแผนภาพ ข้อมูลเพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน</p>
+  <p class="src">ที่มา: RATCH MD&amp;A ไตรมาส 2/2569 (14 ส.ค. 2569) หน่วยล้านบาท รูปทรงโรงไฟฟ้า ควัน และเส้นส่งไฟเป็นภาพประกอบคำอธิบาย ไม่ใช่ขนาด ผัง หรือปริมาณไฟจริง เส้นส่งไฟแสดงเฉพาะโรงที่เอกสารระบุว่าขายให้ กฟผ. รายได้จากสัญญาเช่า (1,022 ล้านบาท) ไม่ได้แสดงในแผนภาพ ข้อมูลเพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน</p>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 <script>
 (function(){
+  // Optional ready-made models (.glb), e.g. made in Meshy. Publish them next to this page and list them here.
+  // Keys: ccgt, ccgtOld, spp, coal, hydro, wind, road, mix. Example: {ccgt:'models/ccgt.glb'}
+  var MODELS=window.RATCH_MODELS||{};
+
   var KIND={
     ccgt:'วัฏจักรร่วม (ก๊าซ)', spp:'SPP โคเจนเนอเรชัน', coal:'ถ่านหิน', hydro:'พลังน้ำ',
     wind:'ลม + ก๊าซ', road:'ทางพิเศษ', mix:'หลายโรง', ccgtOld:'วัฏจักรร่วม (หน่วยถ่านหินหมดสัญญา)'
   };
   var ITEMS=[
-    {id:'hkp',reg:'th',type:'sub',kind:'ccgt',n:2,name:'HKP หินกอง',a:0,b:6499,c:'--c-hkp',desc:'โรงไฟฟ้าวัฏจักรร่วมหินกอง RATCH ถือ 51% เดิมเป็นกิจการร่วมค้า ตอนนี้เป็นบริษัทย่อย จึงรวมรายได้เต็มจำนวน เป็นเหตุหลักที่รายได้รวมของ RATCH โตสูง ไม่ได้แปลว่าธุรกิจเติบโตเท่านั้น'},
-    {id:'rg',reg:'th',type:'sub',kind:'ccgtOld',name:'RG ราชบุรี',a:1933,b:521,c:'--c-rg',desc:'สัญญาซื้อขายไฟกับ กฟผ. ของหน่วยโรงไฟฟ้าพลังความร้อนหมดอายุ 30 ต.ค. 2568 และหยุดผลิต เหลือส่วนวัฏจักรร่วม รายได้จึงลดลง 73%'},
-    {id:'rco',reg:'th',type:'sub',kind:'spp',n:1,name:'RCO',a:791,b:787,c:'--c-th',desc:'โรงไฟฟ้าโคเจนเนอเรชัน อัตรากำไรขั้นต้น 6 เดือนอยู่ที่ 22% รายได้ทรงตัวเทียบปีก่อน'},
-    {id:'rpe',reg:'th',type:'sub',kind:'spp',n:2,name:'RPE',a:861,b:791,c:'--c-th',desc:'โรงไฟฟ้า SPP ขายไฟให้ กฟผ. และลูกค้าในนิคม ค่า Ft ต่ำกว่าปีก่อน และปีก่อนมีเงินชดเชยค่าก๊าซจาก กฟผ. เข้ามาครั้งเดียว'},
-    {id:'rer',reg:'th',type:'sub',kind:'spp',n:1,name:'RER ระยอง',a:556,b:634,c:'--c-th',desc:'โรงไฟฟ้าระยอง รายได้โตขึ้นเพราะ กฟผ. สั่งผลิตมากขึ้น และราคาก๊าซที่สูงขึ้นทำให้ค่าพลังงานไฟฟ้าสูงตาม'},
+    {id:'hkp',reg:'th',type:'sub',kind:'ccgt',n:2,egat:1,buyer:'ขายให้ กฟผ.',name:'HKP หินกอง',a:0,b:6499,c:'--c-hkp',desc:'โรงไฟฟ้าวัฏจักรร่วมหินกอง RATCH ถือ 51% เดิมเป็นกิจการร่วมค้า ตอนนี้เป็นบริษัทย่อย จึงรวมรายได้เต็มจำนวน เป็นเหตุหลักที่รายได้รวมของ RATCH โตสูง ไม่ได้แปลว่าธุรกิจเติบโตเท่านั้น'},
+    {id:'rg',reg:'th',type:'sub',kind:'ccgtOld',n:1,egat:1,buyer:'ขายให้ กฟผ.',name:'RG ราชบุรี',a:1933,b:521,c:'--c-rg',desc:'สัญญาซื้อขายไฟกับ กฟผ. ของหน่วยโรงไฟฟ้าพลังความร้อนหมดอายุ 30 ต.ค. 2568 และหยุดผลิต (ส่วนจางในภาพ) เหลือส่วนวัฏจักรร่วม รายได้จึงลดลง 73%'},
+    {id:'rco',reg:'th',type:'sub',kind:'spp',n:1,egat:1,buyer:'กฟผ. + ลูกค้าอุตสาหกรรม',name:'RCO',a:791,b:787,c:'--c-th',desc:'โรงไฟฟ้าโคเจนเนอเรชัน อัตรากำไรขั้นต้น 6 เดือนอยู่ที่ 22% รายได้ทรงตัวเทียบปีก่อน'},
+    {id:'rpe',reg:'th',type:'sub',kind:'spp',n:2,egat:1,buyer:'กฟผ. + ลูกค้าในนิคม',name:'RPE',a:861,b:791,c:'--c-th',desc:'โรงไฟฟ้า SPP ขายไฟให้ กฟผ. และลูกค้าในนิคม ค่า Ft ต่ำกว่าปีก่อน และปีก่อนมีเงินชดเชยค่าก๊าซจาก กฟผ. เข้ามาครั้งเดียว'},
+    {id:'rer',reg:'th',type:'sub',kind:'spp',n:1,egat:1,buyer:'ขายให้ กฟผ.',name:'RER ระยอง',a:556,b:634,c:'--c-th',desc:'โรงไฟฟ้าระยอง รายได้โตขึ้นเพราะ กฟผ. สั่งผลิตมากขึ้น และราคาก๊าซที่สูงขึ้นทำให้ค่าพลังงานไฟฟ้าสูงตาม'},
     {id:'oth',reg:'th',type:'sub',kind:'mix',name:'บริษัทย่อยอื่น',a:164,b:140,c:'--c-th',desc:'รายได้จากบริษัทย่อยอื่นที่ไม่ได้แยกรายโรง'},
-    {id:'spp',reg:'th',type:'assoc',kind:'spp',n:2,name:'SPP ร่วมทุน',a:61,b:8,c:'--c-th',desc:'ส่วนแบ่งกำไรจากโรงไฟฟ้า SPP ที่ร่วมทุน เช่น นวนคร ซึ่งส่วนขยาย 28.75 MW เริ่มเชิงพาณิชย์เมื่อ 1 เม.ย. 2569 กำไรยังเล็กในไตรมาสนี้'},
+    {id:'spp',reg:'th',type:'assoc',kind:'spp',n:2,egat:1,buyer:'กฟผ. + ลูกค้าในนิคม',name:'SPP ร่วมทุน',a:61,b:8,c:'--c-th',desc:'ส่วนแบ่งกำไรจากโรงไฟฟ้า SPP ที่ร่วมทุน เช่น นวนคร (ขายให้ กฟผ. 90 MW ที่เหลือขายลูกค้าในนิคม) ส่วนขยาย 28.75 MW เริ่มเชิงพาณิชย์เมื่อ 1 เม.ย. 2569 กำไรยังเล็กในไตรมาสนี้'},
     {id:'inf',reg:'th',type:'assoc',kind:'road',name:'ทางพิเศษและอื่นๆ',a:-62,b:130,c:'--c-au',desc:'ส่วนแบ่งกำไรจากโครงสร้างพื้นฐานและอื่นๆ เช่น มอเตอร์เวย์ M6 ที่ RATCH ถือ 10% (คืบหน้า 91%, เปิดปี 2570) กลับมาเป็นบวกจากขาดทุนปีก่อน'},
-    {id:'rac',reg:'ov',type:'sub',kind:'wind',name:'RAC ออสเตรเลีย',a:1442,b:1273,c:'--c-au',desc:'กลุ่มโรงไฟฟ้าในออสเตรเลีย ทั้งก๊าซ (SP, LG) และพลังงานลม (Mt. Emerald, Collector) รายได้ลดลงเพราะราคาไฟในออสเตรเลียใต้ต่ำลง ส่วนโรงพลังลมได้ลมแรงขึ้น'},
-    {id:'ipp',reg:'ov',type:'assoc',kind:'coal',name:'IPP (PE, HPC ฯลฯ)',a:2374,b:1478,c:'--c-ipp',desc:'ผู้ผลิตไฟฟ้าเอกชนรายใหญ่ เช่น Paiton ในอินโดนีเซีย (ถือ 31.26% หลังขายออก 5%) และหงสาในลาว (ถือ 40%) ดีขึ้นจากไตรมาสก่อนเมื่อโรงผลิตมากขึ้น แต่ลดลงจากปีก่อน เพราะถือหุ้น PE น้อยลง และบาทแข็งกด HPC'},
-    {id:'hyd',reg:'ov',type:'assoc',kind:'hydro',name:'พลังน้ำ/หมุนเวียน',a:57,b:-90,c:'--c-hydro',desc:'ส่วนแบ่งขาดทุน 90 ล้านบาท เซเปียน-เซน้ำน้อยดีขึ้น แต่น้ำงึม 2 ลดลงจากน้ำเข้าเขื่อนตามฤดูกาลและดอลลาร์อ่อน'}
+    {id:'rac',reg:'ov',type:'sub',kind:'wind',buyer:'ตลาดไฟฟ้าออสเตรเลีย',name:'RAC ออสเตรเลีย',a:1442,b:1273,c:'--c-au',desc:'กลุ่มโรงไฟฟ้าในออสเตรเลีย ทั้งก๊าซ (SP, LG) และพลังงานลม (Mt. Emerald, Collector) รายได้ลดลงเพราะราคาไฟในออสเตรเลียใต้ต่ำลง ส่วนโรงพลังลมได้ลมแรงขึ้น'},
+    {id:'ipp',reg:'ov',type:'assoc',kind:'coal',egat:1,buyer:'PLN อินโดนีเซีย (Paiton) · กฟผ./EDL (หงสา)',name:'IPP (PE, HPC ฯลฯ)',a:2374,b:1478,c:'--c-ipp',desc:'ผู้ผลิตไฟฟ้าเอกชนรายใหญ่ เช่น Paiton ในอินโดนีเซีย (ถือ 31.26% หลังขายออก 5%) และหงสาในลาว (ถือ 40%) ดีขึ้นจากไตรมาสก่อนเมื่อโรงผลิตมากขึ้น แต่ลดลงจากปีก่อน เพราะถือหุ้น PE น้อยลง และบาทแข็งกด HPC เส้นส่งไฟในภาพนับเฉพาะส่วนหงสาที่ขายให้ กฟผ.'},
+    {id:'hyd',reg:'ov',type:'assoc',kind:'hydro',egat:1,buyer:'ขายให้ กฟผ.',name:'พลังน้ำ/หมุนเวียน',a:57,b:-90,c:'--c-hydro',desc:'ส่วนแบ่งขาดทุน 90 ล้านบาท เซเปียน-เซน้ำน้อยดีขึ้น แต่น้ำงึม 2 ลดลงจากน้ำเข้าเขื่อนตามฤดูกาลและดอลลาร์อ่อน'}
   ];
   var SCALE=1/1500, TILE=2.7;
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -121,65 +129,76 @@ ul.list .y{color:var(--muted);font-size:13px}
   var cv=document.getElementById('cv'), labelsEl=document.getElementById('labels');
   var renderer=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
   renderer.setPixelRatio(Math.min(devicePixelRatio||1,2));
+  renderer.shadowMap.enabled=true; renderer.shadowMap.type=THREE.PCFSoftShadowMap;
   var scene=new THREE.Scene();
   var camera=new THREE.PerspectiveCamera(38,1,0.1,200);
-  scene.add(new THREE.AmbientLight(0xffffff,0.8));
-  var sun=new THREE.DirectionalLight(0xffffff,0.75); sun.position.set(8,14,6); scene.add(sun);
+  scene.add(new THREE.HemisphereLight(0xffffff,0x8a9a95,0.65));
+  var sun=new THREE.DirectionalLight(0xffffff,0.8); sun.position.set(-7,15,9); sun.castShadow=true;
+  sun.shadow.mapSize.set(2048,2048); sun.shadow.bias=-0.0005;
+  var sc=sun.shadow.camera; sc.left=-16;sc.right=16;sc.top=12;sc.bottom=-12;sc.near=1;sc.far=50;
+  scene.add(sun);
   var world=new THREE.Group(); scene.add(world);
 
-  // shared materials, recoloured on theme change
+  function canvasTex(draw,w,h){var c=document.createElement('canvas');c.width=w;c.height=h;draw(c.getContext('2d'),w,h);var t=new THREE.CanvasTexture(c);t.wrapS=t.wrapT=THREE.RepeatWrapping;return t;}
+  var waterTex=canvasTex(function(x,w,h){x.fillStyle='#fff';x.fillRect(0,0,w,h);x.fillStyle='rgba(120,160,190,.55)';for(var i=0;i<6;i++){x.fillRect(0,i*h/6+3,w,5);}},64,64); waterTex.repeat.set(2,1);
+  var fallTex=canvasTex(function(x,w,h){x.fillStyle='#fff';x.fillRect(0,0,w,h);x.fillStyle='rgba(120,160,190,.7)';for(var i=0;i<5;i++){x.fillRect(i*w/5+4,0,6,h);}},64,64); fallTex.repeat.set(1,3);
+  var puffTex=canvasTex(function(x,w,h){var g=x.createRadialGradient(w/2,h/2,0,w/2,h/2,w/2);g.addColorStop(0,'rgba(255,255,255,1)');g.addColorStop(1,'rgba(255,255,255,0)');x.fillStyle=g;x.fillRect(0,0,w,h);},64,64);
+  puffTex.wrapS=puffTex.wrapT=THREE.ClampToEdgeWrapping;
+
   var M={
     island:new THREE.MeshStandardMaterial(), wall:new THREE.MeshStandardMaterial({roughness:.8}),
     steel:new THREE.MeshStandardMaterial({roughness:.5,metalness:.3}), road:new THREE.MeshStandardMaterial({roughness:.9}),
-    water:new THREE.MeshStandardMaterial({transparent:true,opacity:.8}),
+    water:new THREE.MeshStandardMaterial({transparent:true,opacity:.85,map:waterTex}),
+    fall:new THREE.MeshStandardMaterial({transparent:true,opacity:.85,map:fallTex}),
     white:new THREE.MeshStandardMaterial({color:0xf4f4f0}),
     ghostWall:new THREE.MeshStandardMaterial({transparent:true,opacity:.28,roughness:.8})
   };
-  var accentMats=[], tileMats=[], edgeMats=[], spinners=[];
+  var accentMats=[], edgeMats=[], spinners=[], emitters=[], hit=[], lineObjs=[], pulses=[];
 
   function bx(w,h,d,x,y,z,m){var o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);o.position.set(x,y+h/2,z);return o;}
   function cy(rt,rb,h,x,y,z,m,seg){var o=new THREE.Mesh(new THREE.CylinderGeometry(rt,rb,h,seg||16),m);o.position.set(x,y+h/2,z);return o;}
+  function em(g,x,y,z,type){(g.userData.em=g.userData.em||[]).push({x:x,y:y,z:z,type:type});}
 
-  // ---- plant models: footprint about 1.3 x 1.3, centred on origin ----
+  // ---- procedural plant models: footprint about 1.3 x 1.3, centred on origin ----
   function ccgt(g,n,acc,old){
     for(var i=0;i<n;i++){
       var x=(i-(n-1)/2)*.62;
       g.add(bx(.5,.38,.62,x,0,.28,M.wall)); g.add(bx(.5,.05,.62,x,.38,.28,acc));
       g.add(bx(.32,.85,.5,x,0,-.34,M.steel)); g.add(cy(.06,.08,.7,x,.85,-.34,M.steel));
+      em(g,x,1.58,-.34,'smoke');
     }
-    if(old){ // decommissioned coal-fired block, drawn faded
-      g.add(bx(.45,.9,.5,-.55,0,-.55,M.ghostWall)); g.add(cy(.07,.1,1.5,-.55,.9,-.55,M.ghostWall));
-    }
+    if(old){g.add(bx(.45,.9,.5,-.55,0,-.55,M.ghostWall)); g.add(cy(.07,.1,1.5,-.55,.9,-.55,M.ghostWall));}
   }
   function spp(g,n,acc){
     g.add(bx(.85,.42,.6,-.1,0,.2,M.wall)); g.add(bx(.85,.05,.6,-.1,.42,.2,acc));
     g.add(cy(.2,.2,.55,.5,0,.3,M.steel,20));
-    for(var i=0;i<n;i++) g.add(cy(.045,.06,1.1,-.35+i*.3,.0,-.3,M.steel));
+    for(var i=0;i<n;i++){g.add(cy(.045,.06,1.1,-.35+i*.3,0,-.3,M.steel)); em(g,-.35+i*.3,1.12,-.3,'smoke');}
     g.add(bx(.9,.07,.07,-.1,.45,-.3,M.steel));
   }
   function coal(g,acc){
     g.add(bx(.7,1.1,.6,-.2,0,-.1,M.wall)); g.add(bx(.7,.06,.6,-.2,1.1,-.1,acc));
-    g.add(cy(.08,.14,2.5,-.2,1.16,-.1,M.steel,16));
-    var pts=[];for(var k=0;k<=10;k++){var t=k/10;pts.push(new THREE.Vector2(.3-.14*Math.sin(Math.PI*Math.min(1,t*1.15)*.9)+.0,t*1.25));}
-    var ct=new THREE.Mesh(new THREE.LatheGeometry(pts,20),M.white); ct.position.set(.5,0,.3); g.add(ct);
+    g.add(cy(.08,.14,2.5,-.2,1.16,-.1,M.steel,16)); em(g,-.2,3.68,-.1,'smoke');
+    var pts=[];for(var k=0;k<=10;k++){var t=k/10;pts.push(new THREE.Vector2(.3-.14*Math.sin(Math.PI*Math.min(1,t*1.15)*.9),t*1.25));}
+    var ct=new THREE.Mesh(new THREE.LatheGeometry(pts,20),M.white); ct.position.set(.5,0,.3); g.add(ct); em(g,.5,1.3,.3,'steam');
     var pile=new THREE.Mesh(new THREE.ConeGeometry(.3,.28,14),M.road); pile.position.set(-.45,.14,.5); g.add(pile);
-    g.add(bx(.9,.06,.1,.0,.25,.0,M.steel));
+    g.add(bx(.9,.06,.1,0,.25,0,M.steel));
   }
   function hydro(g,acc){
-    g.add(bx(1.3,.55,.7,0,0,-.5,M.water)); // reservoir
-    var dam=bx(1.3,.8,.22,0,0,.0,M.wall); g.add(dam); g.add(bx(1.3,.05,.22,0,.8,0,acc));
+    g.add(bx(1.3,.55,.7,0,0,-.5,M.water));
+    g.add(bx(1.3,.8,.22,0,0,0,M.wall)); g.add(bx(1.3,.05,.22,0,.8,0,acc));
+    g.add(bx(.3,.7,.03,-.3,0,.13,M.fall));
     g.add(bx(.5,.35,.4,.3,0,.45,M.wall)); g.add(bx(.5,.05,.4,.3,.35,.45,acc));
-    var pen=cy(.04,.04,.7,-.15,0,.25,M.steel,10); pen.rotation.x=Math.PI/2.4; pen.position.y=.3; g.add(pen);
+    var pen=cy(.04,.04,.7,.05,0,.25,M.steel,10); pen.rotation.x=Math.PI/2.4; pen.position.y=.3; g.add(pen);
   }
-  function wind(g,acc){
+  function wind(g,acc,it){
     g.add(bx(.55,.3,.45,.45,0,.45,M.wall)); g.add(bx(.55,.04,.45,.45,.3,.45,acc));
     [[-.4,-.35],[.1,-.5],[.5,-.2]].forEach(function(p,i){
       var tw=new THREE.Group(); tw.position.set(p[0],0,p[1]);
       tw.add(cy(.025,.045,1.35,0,0,0,M.white,10));
       var hub=new THREE.Group(); hub.position.set(0,1.35,.05);
       hub.add(new THREE.Mesh(new THREE.SphereGeometry(.05,10,8),M.white));
-      for(var b=0;b<3;b++){var bl=bx(.04,.55,.01,0,0,0,M.white);var arm=new THREE.Group();arm.rotation.z=b*2.094;arm.add(bl);hub.add(arm);}
-      tw.add(hub); g.add(tw); spinners.push({o:hub,s:.9+i*.25});
+      for(var b=0;b<3;b++){var arm=new THREE.Group();arm.rotation.z=b*2.094;arm.add(bx(.04,.55,.01,0,0,0,M.white));hub.add(arm);}
+      tw.add(hub); g.add(tw); spinners.push({o:hub,s:.9+i*.25,it:it});
     });
   }
   function road(g,acc){
@@ -190,53 +209,124 @@ ul.list .y{color:var(--muted);font-size:13px}
   }
   function mix(g,acc){
     g.add(bx(.6,.35,.5,-.2,0,.1,M.wall)); g.add(bx(.6,.04,.5,-.2,.35,.1,acc));
-    g.add(bx(.4,.25,.4,.4,0,.35,M.wall)); g.add(cy(.05,.06,.9,.2,0,-.3,M.steel));
+    g.add(bx(.4,.25,.4,.4,0,.35,M.wall)); g.add(cy(.05,.06,.9,.2,0,-.3,M.steel)); em(g,.2,.92,-.3,'smoke');
+  }
+  function build(it,g,acc){
+    if(it.kind==='ccgt')ccgt(g,it.n,acc,false); else if(it.kind==='ccgtOld')ccgt(g,1,acc,true);
+    else if(it.kind==='spp')spp(g,it.n,acc); else if(it.kind==='coal')coal(g,acc); else if(it.kind==='hydro')hydro(g,acc);
+    else if(it.kind==='wind')wind(g,acc,it); else if(it.kind==='road')road(g,acc); else mix(g,acc);
   }
 
-  // ---- islands & tiles ----
-  function island(w,d,cx){var m=new THREE.Mesh(new THREE.BoxGeometry(w,.3,d),M.island);m.position.set(cx,-.2,0);world.add(m);}
+  // ---- smoke / steam ----
+  var PUFFS=6;
+  function addEmitter(it,x,y,z,type){
+    var e={it:it,base:new THREE.Vector3(it.gx+x,y,it.gz+z),type:type,sp:[]};
+    for(var i=0;i<PUFFS;i++){
+      var m=new THREE.SpriteMaterial({map:puffTex,transparent:true,depthWrite:false,opacity:0});
+      var s=new THREE.Sprite(m); s.userData.phase=i/PUFFS; world.add(s); e.sp.push(s);
+    }
+    emitters.push(e); return e;
+  }
+  function dropEmitters(it){emitters=emitters.filter(function(e){if(e.it!==it)return true;e.sp.forEach(function(s){world.remove(s)});return false;});}
+  var fxOn=true;
+
+  // ---- islands, tiles, plants ----
+  function island(w,d,cx){var m=new THREE.Mesh(new THREE.BoxGeometry(w,.3,d),M.island);m.position.set(cx,-.2,0);m.receiveShadow=true;world.add(m);}
   var TH=ITEMS.filter(function(i){return i.reg==='th'}), OV=ITEMS.filter(function(i){return i.reg==='ov'});
   island(4*TILE+.5,2*TILE+.5,-5.4); island(3*TILE+.5,TILE+.5,6.9);
   TH.forEach(function(it,k){it.x=-5.4+((k%4)-1.5)*TILE; it.z=(Math.floor(k/4)-.5)*TILE;});
   OV.forEach(function(it,k){it.x=6.9+(k-1)*TILE; it.z=0;});
 
-  var isl=[['ประเทศไทย',-5.4,-3.7],['ต่างประเทศ: ออสเตรเลีย อินโดนีเซีย ลาว',6.9,-2.4]].map(function(r){
-    var d=document.createElement('div');d.className='lbl';d.style.fontSize='13px';d.style.color='var(--muted)';d.textContent=r[0];labelsEl.appendChild(d);return {d:d,x:r[1],z:r[2]};});
-  var bars=[], hit=[];
+  function shadowize(o){o.traverse(function(c){if(c.isMesh){c.castShadow=true;c.receiveShadow=true;}});}
+
   ITEMS.forEach(function(it){
-    var tm=new THREE.MeshStandardMaterial({roughness:.9}); tileMats.push(tm); it.tile=tm;
-    var tile=bx(TILE-.2,.06,TILE-.2,it.x,-.06,it.z,tm); tile.userData.item=it; world.add(tile); hit.push(tile);
+    var tm=new THREE.MeshStandardMaterial({roughness:.9}); it.tile=tm;
+    var tile=bx(TILE-.2,.06,TILE-.2,it.x,-.06,it.z,tm); tile.userData.item=it; tile.receiveShadow=true; world.add(tile); hit.push(tile);
     var acc=new THREE.MeshStandardMaterial({color:css(it.c),roughness:.5}); accentMats.push({m:acc,v:it.c}); it.mat=acc;
-    var g=new THREE.Group(); g.position.set(it.x-.5,0,it.z); g.rotation.y=.0; g.scale.setScalar(1);
-    if(it.kind==='ccgt')ccgt(g,it.n,acc,false); else if(it.kind==='ccgtOld')ccgt(g,1,acc,true);
-    else if(it.kind==='spp')spp(g,it.n,acc); else if(it.kind==='coal')coal(g,acc); else if(it.kind==='hydro')hydro(g,acc);
-    else if(it.kind==='wind')wind(g,acc); else if(it.kind==='road')road(g,acc); else mix(g,acc);
-    g.traverse(function(o){if(o.isMesh)o.userData.item=it;}); world.add(g); g.traverse(function(o){if(o.isMesh)hit.push(o);});
-    // value column
+    var g=new THREE.Group(); g.position.set(it.x-.5,0,it.z); it.g=g; it.gx=g.position.x; it.gz=g.position.z;
+    build(it,g,acc); world.add(g); shadowize(g);
+    g.traverse(function(o){if(o.isMesh){o.userData.item=it;hit.push(o);}});
+    (g.userData.em||[]).forEach(function(e){addEmitter(it,e.x,e.y,e.z,e.type);});
     var h=Math.max(Math.abs(it.b)*SCALE,.05), sg=it.b<0?-1:1;
-    var col=new THREE.Mesh(new THREE.BoxGeometry(.42,1,.42),acc); col.userData.item=it; world.add(col); hit.push(col);
-    it.col=col; it.h=h; it.sg=sg; it.cx=it.x+.85;
-    col.position.set(it.cx,0,it.z+.0);
+    var col=new THREE.Mesh(new THREE.BoxGeometry(.42,1,.42),acc); col.userData.item=it; col.castShadow=true; world.add(col); hit.push(col);
+    it.col=col; it.h=h; it.sg=sg; it.cx=it.x+.85; col.position.set(it.cx,0,it.z);
     if(it.a){
       var ha=Math.max(Math.abs(it.a)*SCALE,.05), sa=it.a<0?-1:1;
-      var em=new THREE.LineBasicMaterial({color:0}); edgeMats.push(em);
-      var ln=new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(.5,ha,.5)),em);
+      var eg=new THREE.LineBasicMaterial({color:0}); edgeMats.push(eg);
+      var ln=new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(.5,ha,.5)),eg);
       ln.position.set(it.cx,sa*ha/2,it.z); world.add(ln);
     }
     var d=document.createElement('div'); d.className='lbl'; d.textContent=it.name; labelsEl.appendChild(d); it.lbl=d;
   });
+  var isl=[['ประเทศไทย',-5.4,-3.7],['ต่างประเทศ',6.9,-2.4]].map(function(r){
+    var d=document.createElement('div');d.className='lbl';d.style.fontSize='13px';d.style.color='var(--muted)';d.textContent=r[0];labelsEl.appendChild(d);return {d:d,x:r[1],z:r[2]};});
+
+  // ---- EGAT substation and power lines ----
+  var SUB=new THREE.Vector3(1.4,0,0), TOP=new THREE.Vector3(1.4,2.1,0);
+  (function(){
+    var s=new THREE.Group(); s.position.copy(SUB);
+    s.add(bx(1.5,.08,1.5,0,-.02,0,M.road));
+    s.add(bx(.4,.35,.4,-.4,.06,.35,M.wall)); s.add(bx(.4,.35,.4,.4,.06,.35,M.wall));
+    var p=new THREE.MeshStandardMaterial({color:0xe0902b}); accentMats.push({m:p,v:'--c-hkp'});
+    s.add(cy(.05,.09,2,0,0,-.2,M.steel,8)); s.add(bx(1.1,.06,.06,0,1.75,-.2,M.steel)); s.add(bx(.8,.06,.06,0,1.35,-.2,M.steel));
+    [-.5,0,.5].forEach(function(x){s.add(cy(.03,.03,.18,x,1.77,-.2,p,8));});
+    world.add(s); shadowize(s);
+    var d=document.createElement('div'); d.className='lbl'; d.style.fontWeight='700'; d.textContent='กฟผ. (ระบบส่ง)'; labelsEl.appendChild(d); SUB.lbl=d;
+  })();
+  var linesGroup=new THREE.Group(); world.add(linesGroup);
+  var pulseGeo=new THREE.SphereGeometry(.07,10,8);
+  ITEMS.filter(function(i){return i.egat}).forEach(function(it,k){
+    var from=new THREE.Vector3(it.x-.5,1.7,it.z), mid=from.clone().add(TOP).multiplyScalar(.5); mid.y=Math.max(from.y,TOP.y)+1.3+Math.abs(from.x-TOP.x)*.05;
+    var curve=new THREE.QuadraticBezierCurve3(from,mid,TOP.clone().add(new THREE.Vector3((k%3-1)*.4,-.3,0)));
+    var lm=new THREE.LineBasicMaterial({color:0xe0902b,transparent:true,opacity:.55}); accentMats.push({m:lm,v:it.c});
+    linesGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(curve.getPoints(48)),lm));
+    for(var j=0;j<3;j++){var pm=new THREE.MeshBasicMaterial({color:0xe0902b}); accentMats.push({m:pm,v:it.c});
+      var ps=new THREE.Mesh(pulseGeo,pm); linesGroup.add(ps); pulses.push({o:ps,c:curve,off:j/3+k*.13,sp:.14+it.b/60000});}
+  });
+
+  // ---- optional .glb replacement ----
+  function loadModels(){
+    if(!THREE.GLTFLoader)return;
+    var loader=new THREE.GLTFLoader(), cache={};
+    Object.keys(MODELS).forEach(function(kind){
+      loader.load(MODELS[kind],function(gltf){
+        cache[kind]=gltf.scene;
+        ITEMS.filter(function(i){return i.kind===kind}).forEach(function(it){useModel(it,gltf.scene.clone(true));});
+      },undefined,function(){/* keep procedural model */});
+    });
+  }
+  function useModel(it,model){
+    var g=it.g;
+    hit=hit.filter(function(o){var keep=true;g.traverse(function(c){if(c===o)keep=false;});return keep;});
+    spinners=spinners.filter(function(s){return s.it!==it;});
+    while(g.children.length)g.remove(g.children[0]);
+    var box=new THREE.Box3().setFromObject(model), size=box.getSize(new THREE.Vector3()), ctr=box.getCenter(new THREE.Vector3());
+    var k=Math.min(1.3/Math.max(size.x,size.z,.001),2.6/Math.max(size.y,.001));
+    model.scale.multiplyScalar(k); model.position.set(-ctr.x*k,-box.min.y*k,-ctr.z*k);
+    g.add(model); shadowize(model);
+    g.traverse(function(o){if(o.isMesh){o.userData.item=it;hit.push(o);}});
+    dropEmitters(it);
+    if(it.kind==='ccgt'||it.kind==='ccgtOld'||it.kind==='spp'||it.kind==='coal') addEmitter(it,0,size.y*k+.05,0,'smoke');
+  }
+  loadModels();
 
   function theme(){
     M.island.color.set(css('--island')); M.wall.color.set(css('--wall')); M.steel.color.set(css('--steel'));
-    M.road.color.set(css('--road')); M.water.color.set(css('--water')); M.ghostWall.color.set(css('--wall'));
+    M.road.color.set(css('--road')); M.water.color.set(css('--water')); M.fall.color.set(css('--water')); M.ghostWall.color.set(css('--wall'));
     accentMats.forEach(function(a){a.m.color.set(css(a.v));});
     edgeMats.forEach(function(e){e.color.set(css('--fg'));});
+    var sm=css('--smoke'); emitters.forEach(function(e){e.sp.forEach(function(s){s.material.color.set(e.type==='steam'?css('--steam'):sm);});});
     paintSel();
   }
   function paintSel(){ITEMS.forEach(function(i){i.tile.color.set(css(i===sel?'--sel':'--tile'));});}
   var sel=null;
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change',theme);
   new MutationObserver(theme).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+
+  // ---- toggles ----
+  var tgL=document.getElementById('tgLines'), tgF=document.getElementById('tgFx');
+  tgL.addEventListener('change',function(){linesGroup.visible=tgL.checked;});
+  tgF.addEventListener('change',function(){fxOn=tgF.checked;});
 
   // ---- orbit ----
   var yaw=-.55,pitch=.62,dist=30,drag=null,moved=0,auto=!reduce;
@@ -265,30 +355,41 @@ ul.list .y{color:var(--muted);font-size:13px}
     Array.prototype.forEach.call(listEl.querySelectorAll('button'),function(b){b.setAttribute('aria-pressed',b.dataset.id===id?'true':'false')});
     var y=sel.a?((sel.b-sel.a)/Math.abs(sel.a)*100):null;
     var yt=y===null?'ไม่มีฐานปีก่อน':(y>=0?'+':'')+y.toFixed(1)+'%',cl=y===null?'':(y>=0?'up':'down');
-    infoEl.innerHTML='<div class="chips"><span class="chip">'+(sel.reg==='th'?'ในไทย':'ต่างประเทศ')+'</span><span class="chip">'+KIND[sel.kind]+'</span><span class="chip">'+(sel.type==='sub'?'บริษัทย่อย · นับรายได้ขาย':'ร่วมทุน · นับส่วนแบ่งกำไร')+'</span></div>'+
+    infoEl.innerHTML='<div class="chips"><span class="chip">'+(sel.reg==='th'?'ในไทย':'ต่างประเทศ')+'</span><span class="chip">'+KIND[sel.kind]+'</span><span class="chip">'+(sel.type==='sub'?'บริษัทย่อย · นับรายได้ขาย':'ร่วมทุน · นับส่วนแบ่งกำไร')+'</span>'+(sel.buyer?'<span class="chip">ผู้ซื้อไฟ: '+sel.buyer+'</span>':'')+'</div>'+
       '<h2>'+sel.name+'</h2><div class="nums"><div><small>Q2/2568</small><strong>'+fmt(sel.a)+'</strong></div><div><small>Q2/2569</small><strong>'+fmt(sel.b)+'</strong></div><div><small>เทียบปีก่อน</small><strong class="'+cl+'">'+yt+'</strong></div></div><p>'+sel.desc+'</p>';
   }
   select('hkp'); theme();
 
-  function resize(){var w=cv.clientWidth,h=cv.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;dist=Math.max(17,31/(.689*camera.aspect));camera.updateProjectionMatrix();}
+  function resize(){var w=cv.clientWidth,h=cv.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;dist=Math.max(17,26/(.689*camera.aspect));camera.updateProjectionMatrix();}
   new ResizeObserver(resize).observe(cv);resize();
 
-  var t0=performance.now(),tmp=new THREE.Vector3();
+  var t0=performance.now(),tmp=new THREE.Vector3(),pt=new THREE.Vector3();
+  function proj(el,x,y,z,w,h,anchor){tmp.set(x,y,z).project(camera);
+    el.style.transform='translate('+((tmp.x*.5+.5)*w)+'px,'+((-tmp.y*.5+.5)*h)+'px) translate(-50%,'+anchor+')';el.style.display=tmp.z<1?'block':'none';}
   function frame(now){
-    var k=reduce?1:Math.min(1,(now-t0)/1100),e=1-Math.pow(1-k,3);
+    var sec=now/1000, k=reduce?1:Math.min(1,(now-t0)/1100), e=1-Math.pow(1-k,3);
     if(auto)yaw+=.0022;
-    if(!reduce)spinners.forEach(function(s){s.o.rotation.z-=.02*s.s;});
+    if(!reduce){
+      spinners.forEach(function(s){s.o.rotation.z-=.02*s.s;});
+      waterTex.offset.x=(sec*.05)%1; fallTex.offset.y=(-sec*.9)%1;
+    }
+    emitters.forEach(function(em){
+      em.sp.forEach(function(s){
+        if(!fxOn||reduce){s.material.opacity=0;return;}
+        var t=(sec*(em.type==='steam'?.22:.3)+s.userData.phase)%1, grow=em.type==='steam'?.5:.38;
+        s.position.set(em.base.x+t*.35+Math.sin(sec+s.userData.phase*6)*.03,em.base.y+t*(em.type==='steam'?1.1:1.5),em.base.z);
+        var sz=.18+t*grow; s.scale.set(sz,sz,1); s.material.opacity=.5*Math.sin(Math.PI*Math.min(1,t*1.05))*(em.type==='steam'?.9:.7);
+      });
+    });
+    pulses.forEach(function(p){var t=reduce?(p.off%1):((sec*p.sp+p.off)%1);p.o.position.copy(p.c.getPoint(t));});
     ITEMS.forEach(function(it){var h=it.h*e;it.col.scale.y=Math.max(.001,h);it.col.position.y=it.sg*h/2;});
     camera.position.set(.2+Math.sin(yaw)*Math.cos(pitch)*dist,Math.sin(pitch)*dist,Math.cos(yaw)*Math.cos(pitch)*dist);
     camera.lookAt(.2,.6,0);camera.updateMatrixWorld();
     renderer.render(scene,camera);
     var w=cv.clientWidth,h=cv.clientHeight;
-    ITEMS.forEach(function(it){
-      tmp.set(it.x,.1,it.z+1.05).project(camera);
-      it.lbl.style.transform='translate('+((tmp.x*.5+.5)*w)+'px,'+((-tmp.y*.5+.5)*h)+'px) translate(-50%,0)';
-      it.lbl.style.fontWeight=it===sel?'700':'500';it.lbl.style.display=tmp.z<1?'block':'none';
-    });
-    isl.forEach(function(r){tmp.set(r.x,0,r.z).project(camera);r.d.style.transform='translate('+((tmp.x*.5+.5)*w)+'px,'+((-tmp.y*.5+.5)*h)+'px) translate(-50%,-100%)';});
+    ITEMS.forEach(function(it){proj(it.lbl,it.x,.1,it.z+1.05,w,h,'0');it.lbl.style.fontWeight=it===sel?'700':'500';if(w<560&&it!==sel)it.lbl.style.display='none';});
+    isl.forEach(function(r){proj(r.d,r.x,0,r.z,w,h,'-100%');});
+    proj(SUB.lbl,SUB.x,2.2,SUB.z,w,h,'-100%');
     requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);
